@@ -1,0 +1,10 @@
+package rules;
+
+import com.xuan.rule.domain.Order;
+
+rule "VIP_Discount"
+when
+    $order : Order(level == "VIP")
+then
+    $order.setFinalPrice($order.getOriginalPrice() * 0.8);
+end
